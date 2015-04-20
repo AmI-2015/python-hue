@@ -1,6 +1,6 @@
 # Hue Lights control in Python
 
-This repository contains basic scripts for testing the Philips Hue APIs frm python. The available files include:
+This repository contains basic scripts for testing the Philips Hue APIs from python. The available files include:
 
 * ```rest.py``` a rest helper for easily sendig request to a given API endpoint with a given payload, using a given HTTP verb.
 * ```hue.py``` a simple tester for the Philips Hue API turning on all available lamps in color-loop mode
