@@ -36,7 +36,7 @@ def main():
     # the bridge id
     bridge = HueBridge("http://192.168.1.100/api/python-hue")
     # set the hue for the first lamp
-    lamp_id = 3
+    lamp_id = 2
     
     # the string to render as speech, initially empty
     string = ""
