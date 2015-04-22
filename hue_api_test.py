@@ -21,20 +21,21 @@ import math
 from hue_api import HueBridge
 
 
-def computeHue(value,max_value):
+def computeHue(value, max_value):
     hue_red = 65535
     hue_green = 25500
-    #drive the hue with colors depending on the current power, use simple learning of maximum value
+    
+    # compute the right parameters needed to convert the given numeric value to the righ hue value. 
     ratio = 1
     if(max_value > 0):
         ratio = min(1, value / max_value) 
-    #compute the current hue
-    return int(math.floor(hue_green+(hue_red-hue_green)*ratio))
+    # compute the current hue
+    return int(math.floor(hue_green + (hue_red - hue_green) * ratio))
 
 def main():
-    #the bridge id
+    # the bridge id
     bridge = HueBridge("http://192.168.1.100/api/python-hue")
-    #set the hue for the first lamp
+    # set the hue for the first lamp
     lamp_id = 3
     
     # the string to render as speech, initially empty
@@ -48,14 +49,14 @@ def main():
             print "Goodbye!"
         else:
             try:
-                #get the requested hue
+                # get the requested hue
                 req_hue = int(string)
-                #compute the actual hue
+                # compute the actual hue
                 hue = computeHue(req_hue, 255.0);
-                #debug
-                print ("Hue:%s"%hue)
-                #set the hue
-                bridge.setHue(lamp_id,hue)
+                # debug
+                print ("Hue:%s" % hue)
+                # set the hue
+                bridge.setHue(lamp_id, hue)
             except:
                 pass
     
